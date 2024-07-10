@@ -1,0 +1,18 @@
+
+
+
+<ng-container *ngIf="isAuthenticated(); else loginTemplate">
+
+
+
+    <router-outlet></router-outlet> <!-- Aquí se cargará el contenido dinámico -->
+
+
+
+</ng-container>
+
+
+<ng-template #loginTemplate>
+
+  <router-outlet></router-outlet>
+</ng-template>

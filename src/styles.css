@@ -1,0 +1,9 @@
+/* styles.css */
+
+body {
+  font-family: Roboto, sans-serif;
+  background: #f3f4f6;
+  display: flex;
+   margin: 0;
+}
+
