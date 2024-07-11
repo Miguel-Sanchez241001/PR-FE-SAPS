@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  flex-direction: column;
 }
 
 /* Tarjeta de login */
@@ -84,4 +85,9 @@
 
 .forgot-password:hover {
   text-decoration: underline;
+}
+.titulo {
+  text-align: center; /* Centra el título */
+  font-size: 24px; /* Tamaño de letra mediana */
+  font-weight: bold; /* Negrita */
 }

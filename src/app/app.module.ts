@@ -6,7 +6,9 @@ import {LoginModule} from "./features/login/login.module";
 import {HttpClientModule} from "@angular/common/http";
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-@NgModule({
+import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './features/dashboard/dashboard.module';
+ @NgModule({
   declarations: [
     AppComponent
   ],
@@ -15,6 +17,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     LoginModule,
     HttpClientModule,
+    SharedModule,
+    DashboardModule,
 
   ],
   providers: [

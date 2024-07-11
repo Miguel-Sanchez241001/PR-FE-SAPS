@@ -4,9 +4,10 @@
 <ng-container *ngIf="isAuthenticated(); else loginTemplate">
 
 
-
+<app-topbar></app-topbar>
+  <app-sidebar></app-sidebar>
     <router-outlet></router-outlet> <!-- Aquí se cargará el contenido dinámico -->
-
+<app-footer></app-footer>
 
 
 </ng-container>
