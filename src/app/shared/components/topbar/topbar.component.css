@@ -1,0 +1,33 @@
+.navbar {
+  width: 100%;
+  height: 10vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar_usuario {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centra verticalmente */
+}
+
+.navbar-text {
+  font-size: 15px;       /* Tamaño de la letra */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  display: flex;
+  align-items: center;
+}
+
+.navbar_usuario_item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Espaciado entre los ítems del usuario */
+  gap: 10px; /* Espacio entre los elementos del usuario */
+}
+
+.navbar_usuario_imagen mat-icon {
+  font-size: 25px; /* Asegura que los íconos tengan el mismo tamaño que la letra */
+  margin-right: 5px; /* Espacio entre el ícono y el texto */
+}

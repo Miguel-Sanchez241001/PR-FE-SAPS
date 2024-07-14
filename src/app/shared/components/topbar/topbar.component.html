@@ -1,1 +1,24 @@
-<p>topbar works!</p>
+<mat-toolbar class="navbar" color="primary">
+  <div class="navbar_titulo">
+    <h2>SAPS - Sistema de asignacion de personal de seguridad</h2>
+  </div>
+  <div class="navbar_usuario">
+    <div class="navbar_usuario_datos">
+      <span class="navbar_usuario_item navbar-text">
+          <mat-icon>person</mat-icon>
+        <span>{{ user?.nombreCompleto }}</span>
+      </span>
+      <span class="navbar_usuario_item navbar-text">
+          <mat-icon>group</mat-icon>
+          <span>{{ user?.role }}</span>
+      </span>
+    </div>
+    <div class="navbar_usuario_session">
+      <span>
+        <button class="navbar_usuario_imagen" mat-icon-button (click)="loguotApp()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </span>
+    </div>
+  </div>
+</mat-toolbar>

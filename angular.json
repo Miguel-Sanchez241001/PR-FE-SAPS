@@ -40,7 +40,8 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/SAPS/"
           },
           "configurations": {
             "production": {
@@ -104,5 +105,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
