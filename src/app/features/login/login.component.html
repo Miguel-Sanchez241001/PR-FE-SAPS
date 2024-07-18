@@ -23,7 +23,7 @@
           </mat-form-field>
           <mat-checkbox class="example-margin">Recordar usuario</mat-checkbox>
           <button mat-raised-button color="primary" class="full-width" type="submit">Iniciar sesión</button>
-          <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+          <div class="error-message" *ngIf="errorMessage()?.toString()">{{ errorMessage()?.toString() }}</div>
         </form>
       </mat-card-content>
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { Router, NavigationStart } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LoggingService } from '../../core/services/logging.service';
 
 @Component({
   selector: 'app-login',
@@ -11,41 +11,49 @@ import { filter } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
   public username: string = '';
   public password: string = '';
-  public errorMessage: string = '';
+  errorMessage = signal<string | null>(null);
 
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    console.log("Inicio componente login");
+  constructor(
+    private authService: AuthService,
+    private routeA: ActivatedRoute,
+    private router: Router,
+    private loggingService: LoggingService
+  ) {
+    this.loggingService.log('LoginComponent', 'Login component created', 'debug');
 
     // Capturar el estado de navegación
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as { errorMessage?: string, message?: string };
-    if (state) {
-      this.errorMessage = state.errorMessage || state.message || '';
-    }
-
-    // Verificar autenticación y redirigir
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
-    }
-
-    // Suscribirse a los eventos de navegación para capturar el estado de navegación en tiempo real
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationStart)
-    ).subscribe(() => {
-      const navigation = this.router.getCurrentNavigation();
-      const state = navigation?.extras.state as { errorMessage?: string, message?: string };
+    this.routeA.queryParams.subscribe(params => {
+      const state = params['message'] ?? params['errorMessage'] ?? null;
       if (state) {
-        this.errorMessage = state.errorMessage || state.message || '';
+        this.errorMessage.set(state);
+        this.loggingService.log('LoginComponent', `Query parameter state set to: ${state}`, 'debug');
       }
     });
   }
 
+  ngOnInit(): void {
+    this.loggingService.log('LoginComponent', 'ngOnInit called', 'debug');
+
+    // Verificar autenticación y redirigir
+    if (this.authService.isAuthenticated()) {
+      this.loggingService.log('LoginComponent', 'User is authenticated, navigating to /dashboard', 'debug');
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.loggingService.log('LoginComponent', 'User is not authenticated', 'debug');
+    }
+  }
+
   login(): void {
+    this.loggingService.log('LoginComponent', `Attempting login with username: ${this.username}`, 'debug');
     this.authService.login(this.username, this.password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: (err) => this.errorMessage = err.message
+      next: () => {
+        this.loggingService.log('LoginComponent', 'Login successful, navigating to /dashboard', 'debug');
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.errorMessage.set(err.message);
+        this.loggingService.log('LoginComponent', `Login failed: ${err.message}`, 'error');
+      }
     });
   }
 }

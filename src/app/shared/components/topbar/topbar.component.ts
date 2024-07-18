@@ -22,8 +22,5 @@ export class TopbarComponent {
 
   loguotApp(): void {
     this.authService.logout();
-    this.router.navigate(['/login'], {
-      state: { message: 'Sesión cerrada correctamente' }
-    });
   }
 }
