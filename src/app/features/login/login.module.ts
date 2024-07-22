@@ -14,6 +14,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {PasswordModule} from "primeng/password";
+import {CheckboxModule} from "primeng/checkbox";
+import {Button, ButtonDirective} from "primeng/button";
+import {MessagesModule} from "primeng/messages";
+import {Ripple} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -22,7 +27,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   imports: [
     CommonModule,
     LoginRoutingModule,
-    RouterModule.forChild([{ path: '', component: LoginComponent }]),
+    RouterModule.forChild([{path: '', component: LoginComponent}]),
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -31,7 +36,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatFormFieldModule,
     MatIconModule,
     MatCheckboxModule,
-    MatSidenavModule
+    MatSidenavModule,
+    PasswordModule,
+    CheckboxModule,
+    Button,
+    MessagesModule,
+    Ripple,
+    ButtonDirective
   ]
 })
 export class LoginModule { }

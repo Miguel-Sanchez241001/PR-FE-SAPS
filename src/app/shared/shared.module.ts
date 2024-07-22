@@ -9,6 +9,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UnauthorizedComponent } from '../features/unauthorized/unauthorized.component';
+import {Button} from "primeng/button";
+import {ToolbarModule} from "primeng/toolbar";
+import {PanelMenuModule} from "primeng/panelmenu";
+import {Ripple} from "primeng/ripple";
+import {BadgeModule} from "primeng/badge";
+import {TieredMenuModule} from "primeng/tieredmenu";
 
 
 @NgModule({
@@ -22,13 +28,19 @@ import { UnauthorizedComponent } from '../features/unauthorized/unauthorized.com
     SidebarComponent,
     FooterComponent
   ],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatButtonModule,
+        Button,
+        ToolbarModule,
+        PanelMenuModule,
+        Ripple,
+        BadgeModule,
+        TieredMenuModule
+    ]
 })
 export class SharedModule { }

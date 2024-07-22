@@ -23,4 +23,6 @@ export class TopbarComponent {
   loguotApp(): void {
     this.authService.logout();
   }
+
+
 }

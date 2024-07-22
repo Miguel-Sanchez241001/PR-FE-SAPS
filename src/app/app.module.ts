@@ -13,6 +13,8 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
 import {MatIconModule} from "@angular/material/icon";
 import {AuthService} from "./core/services/auth.service";
 import {UnauthorizedComponent} from "./features/unauthorized/unauthorized.component";
+import {ButtonDirective} from "primeng/button";
+import {Ripple} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {UnauthorizedComponent} from "./features/unauthorized/unauthorized.compon
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    ButtonDirective,
+    Ripple
   ],
   providers: [
     provideAnimationsAsync(),
