@@ -80,6 +80,16 @@ export class SidebarComponent implements OnInit {
             routerLink: '/modificar-personal'
           }
         ]
+      },   {
+        label: 'Usuarios',
+        icon: 'pi pi-id-card',
+        items: [
+          {
+            label: 'Ver usuarios',
+            icon: 'pi pi-eye',
+            routerLink: '/ver-clientes'
+          }
+        ]
       }
     ];
 }

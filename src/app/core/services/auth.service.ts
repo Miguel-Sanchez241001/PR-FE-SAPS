@@ -25,7 +25,7 @@ export class AuthService {
         user: {
           nombreCompleto: 'Sofia Fernanda Torres',
           role: 'administrador',
-          permissions: ['all']
+          permissions: ['usuarios']
         }
       };
       localStorage.setItem('token', response.token);
@@ -38,7 +38,20 @@ export class AuthService {
         user: {
           nombreCompleto: 'Jose Florez Rivera',
           role: 'asignador',
-          permissions: ['asignar', 'personal', 'horario']
+          permissions: ['asignar', 'personal',]
+        }
+      };
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('user', JSON.stringify(response.user));
+      this.loggingService.log('AuthService', `User ${response.user.nombreCompleto} logged in successfully`, 'debug');
+      return of(response);
+    }  else if (username === 'operador' && password === 'operador') {
+      const response: AuthResponse = {
+        token: 'dummy-token-user',
+        user: {
+          nombreCompleto: 'Sebastian Diaz Florez ',
+          role: 'Consulta',
+          permissions: ['clientes', 'solicitudes']
         }
       };
       localStorage.setItem('token', response.token);
