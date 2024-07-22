@@ -1,0 +1,13 @@
+.footer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  height: 10vh;
+  width: 90%;
+}
+.container{
+
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+}
+

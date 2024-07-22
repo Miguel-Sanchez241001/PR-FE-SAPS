@@ -1,0 +1,12 @@
+<div class="menu">
+    <p-tieredMenu [model]="items" [styleClass]="'w-full'">
+      <ng-template pTemplate="item" let-item let-hasSubmenu="hasSubmenu">
+        <a [routerLink]="item.routerLink" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-menuitem" class="p-menuitem-link">
+          <span [class]="item.icon"></span>
+          <span class="ml-2">{{ item.label }}</span>
+          <span *ngIf="hasSubmenu" class="pi pi-angle-right ml-auto"></span>
+        </a>
+      </ng-template>
+    </p-tieredMenu>
+
+</div>

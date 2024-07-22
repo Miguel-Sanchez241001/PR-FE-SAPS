@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ReportesComponent } from './reportes/reportes.component';
-
+import { ButtonModule } from 'primeng/button';
+import {ButtonGroupModule} from "primeng/buttongroup";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,9 @@ import { ReportesComponent } from './reportes/reportes.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ButtonModule,
+    ButtonGroupModule
   ]
 })
 export class DashboardModule { }

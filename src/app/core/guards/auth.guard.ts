@@ -10,7 +10,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     router.navigate(['/login'], {
-      state: { errorMessage: 'Necesita loguearse' }
+      queryParams: { errorMessage: 'Necesita loguearse' }
     });
     return false;
   }
