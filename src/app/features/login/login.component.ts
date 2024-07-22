@@ -13,10 +13,7 @@ export class LoginComponent implements OnInit {
   public password: string = '';
   public errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    console.log("Inicio componente login");
+  constructor(private authService: AuthService, private router: Router) {
 
     // Capturar el estado de navegación
     const navigation = this.router.getCurrentNavigation();
@@ -24,22 +21,15 @@ export class LoginComponent implements OnInit {
     if (state) {
       this.errorMessage = state.errorMessage || state.message || '';
     }
+  }
 
+  ngOnInit(): void {
+    console.log("Inicio componente login");
     // Verificar autenticación y redirigir
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
 
-    // Suscribirse a los eventos de navegación para capturar el estado de navegación en tiempo real
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationStart)
-    ).subscribe(() => {
-      const navigation = this.router.getCurrentNavigation();
-      const state = navigation?.extras.state as { errorMessage?: string, message?: string };
-      if (state) {
-        this.errorMessage = state.errorMessage || state.message || '';
-      }
-    });
   }
 
   login(): void {
