@@ -50,7 +50,7 @@ export class AuthService {
         token: 'dummy-token-user',
         user: {
           nombreCompleto: 'Sebastian Diaz Florez ',
-          role: 'Consulta',
+          role: 'operador',
           permissions: ['clientes', 'solicitudes']
         }
       };
