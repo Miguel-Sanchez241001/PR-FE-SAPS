@@ -43,7 +43,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "/SAPS/"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
