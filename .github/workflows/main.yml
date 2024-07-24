@@ -28,4 +28,4 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm --cwd dist/[nombre-del-directorio]
+        run: npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm --cwd dist/frontend-sgap
