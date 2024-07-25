@@ -1,31 +1,30 @@
-name: Deploy Angular to Vercel
+name: Desplegar en Vercel Proyecto Angular
 
+env:
+    VERCEL_ORG_ID: ${{secrets.VERCEL_ORG_ID}}
+    VERCEL_PROJECT_ID: ${{secrets.VERCEL_PROJECT_ID}}
 on:
   push:
     branches:
       - master  # O la rama que desees usar para despliegues
 
 jobs:
-  build:
+  Deploy-Production:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Verificando Codigo
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'  # Usa la versión de Node.js compatible con Angular 17
+      - name: Instalar Vercel CLI
+        run: npm install --global vercel
 
-      - name: Install dependencies
-        run: npm install
+      - name: Traer Entorno Vercel Informacion
+        run: vercel pull --yes --environment=production --token=${{secrets.VERCEL_TOKEN}}
 
-      - name: Build Angular project
-        run: npm run build --prod
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy to Vercel
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm --cwd dist/frontend-sgap
+      - name: Deploy Project Artifacts
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
