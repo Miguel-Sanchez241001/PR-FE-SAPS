@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Verificando Codigo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Instalar Vercel CLI
         run: npm install --global vercel
